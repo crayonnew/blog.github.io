@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="mysql,">
 
 
 
@@ -86,17 +86,18 @@
 
 
 
-<meta name="description" content="AV.initialize(&quot;Vch5Jv6xnPrdJckng9Wel7xT-gzGzoHsz&quot;, &quot;dLPTCbCGRS6BfkXzIDekwTeG&quot;);    var time=0   var title=&quot;&quot;   var url=&quot;&quot;   var query = new AV.Query(&apos;Counter&apos;);   query.notEqualTo(&apos;id&apos;,0);   query.d">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阅读排行榜">
-<meta property="og:url" content="http://yoursite.com/top/index.html">
+<meta name="description" content="日常运维一些通用操作12345678910111213-- 查看mysql版本select version();-- 查看数据文件保存目录show variables like &amp;quot;%datadir%&amp;quot;;-- mysql修改数据库时间set global time_zone = &amp;apos;+8:00&amp;apos;;set time_zone = &amp;apos;+8:00&amp;apos;">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql常见操作">
+<meta property="og:url" content="http://yoursite.com/2018/11/05/mysql操作语句/index.html">
 <meta property="og:site_name" content="Nino&#39;s blog">
-<meta property="og:description" content="AV.initialize(&quot;Vch5Jv6xnPrdJckng9Wel7xT-gzGzoHsz&quot;, &quot;dLPTCbCGRS6BfkXzIDekwTeG&quot;);    var time=0   var title=&quot;&quot;   var url=&quot;&quot;   var query = new AV.Query(&apos;Counter&apos;);   query.notEqualTo(&apos;id&apos;,0);   query.d">
+<meta property="og:description" content="日常运维一些通用操作12345678910111213-- 查看mysql版本select version();-- 查看数据文件保存目录show variables like &amp;quot;%datadir%&amp;quot;;-- mysql修改数据库时间set global time_zone = &amp;apos;+8:00&amp;apos;;set time_zone = &amp;apos;+8:00&amp;apos;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-05T05:38:39.839Z">
+<meta property="og:updated_time" content="2018-11-05T06:51:36.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阅读排行榜">
-<meta name="twitter:description" content="AV.initialize(&quot;Vch5Jv6xnPrdJckng9Wel7xT-gzGzoHsz&quot;, &quot;dLPTCbCGRS6BfkXzIDekwTeG&quot;);    var time=0   var title=&quot;&quot;   var url=&quot;&quot;   var query = new AV.Query(&apos;Counter&apos;);   query.notEqualTo(&apos;id&apos;,0);   query.d">
+<meta name="twitter:title" content="mysql常见操作">
+<meta name="twitter:description" content="日常运维一些通用操作12345678910111213-- 查看mysql版本select version();-- 查看数据文件保存目录show variables like &amp;quot;%datadir%&amp;quot;;-- mysql修改数据库时间set global time_zone = &amp;apos;+8:00&amp;apos;;set time_zone = &amp;apos;+8:00&amp;apos;">
 
 
 
@@ -126,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/top/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/05/mysql操作语句/">
 
 
 
 
 
-  <title>阅读排行榜 | Nino's blog</title>
+  <title>mysql常见操作 | Nino's blog</title>
   
 
 
@@ -280,57 +281,232 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/05/mysql操作语句/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nino">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nino's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">阅读排行榜</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p><div id="top"></div></p>
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script>AV.initialize("Vch5Jv6xnPrdJckng9Wel7xT-gzGzoHsz", "dLPTCbCGRS6BfkXzIDekwTeG");</script>
-<script type="text/javascript">
-  var time=0
-  var title=""
-  var url=""
-  var query = new AV.Query('Counter');
-  query.notEqualTo('id',0);
-  query.descending('time');
-  query.limit(1000);
-  query.find().then(function (todo) {
-    for (var i=0;i<1000;i++){
-      var result=todo[i].attributes;
-      time=result.time;
-      title=result.title;
-      url=result.url;
-      // var content="<a href='"+"https://hoxis.github.io"+url+"'>"+title+"</a>"+"<br>"+"<font color='#fff'>"+"阅读次数："+time+"</font>"+"<br><br>";
-      var content="<p>"+"<font color='#1C1C1C'>"+"【文章热度:"+time+"℃】"+"</font>"+"<a href='"+"https://crayonnew.github.io"+url+"'>"+title+"</a>"+"</p>";
-      document.getElementById("top").innerHTML+=content
-    }
-  }, function (error) {
-    console.log("error");
-  });
-</script>
+          <h1 class="post-title" itemprop="name headline">mysql常见操作</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-05T14:39:31+08:00">
+                2018-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/05/mysql操作语句/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/05/mysql操作语句/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>&nbsp;阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  542
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="日常运维"><a href="#日常运维" class="headerlink" title="日常运维"></a>日常运维</h1><h2 id="一些通用操作"><a href="#一些通用操作" class="headerlink" title="一些通用操作"></a>一些通用操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- 查看mysql版本</span><br><span class="line">select version();</span><br><span class="line"></span><br><span class="line">-- 查看数据文件保存目录</span><br><span class="line">show variables like &quot;%datadir%&quot;;</span><br><span class="line"></span><br><span class="line">-- mysql修改数据库时间</span><br><span class="line">set global time_zone = &apos;+8:00&apos;;</span><br><span class="line">set time_zone = &apos;+8:00&apos;;</span><br><span class="line">flush privileges;</span><br><span class="line"></span><br><span class="line">-- 查看存储引擎</span><br><span class="line">show table status from ytx_combo where name=&apos;combo&apos;;</span><br></pre></td></tr></table></figure>
+<h2 id="mysql中的常用工具"><a href="#mysql中的常用工具" class="headerlink" title="mysql中的常用工具"></a>mysql中的常用工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查找my.cnf的文件地址</span><br><span class="line">mysql --help|grep my.cnf</span><br><span class="line"></span><br><span class="line"># 查看mysql的my.conf文件所在位置</span><br><span class="line">mysql -p123456 --help |grep my.cnf</span><br><span class="line"></span><br><span class="line"># 登录mysql</span><br><span class="line">mysql -h 127.0.0.1 -P3306 -u root -p</span><br></pre></td></tr></table></figure>
+<h2 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mybatis批量修改</span><br><span class="line">&amp;allowMultiQueries=true</span><br></pre></td></tr></table></figure>
+<h2 id="查询建表语句"><a href="#查询建表语句" class="headerlink" title="查询建表语句"></a>查询建表语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">show create table film</span><br><span class="line">show create table store;</span><br><span class="line">alter table tt add (age INT); --添加一列</span><br><span class="line">alter table tt modify age VARCHAR(30); --修改列数据类型</span><br><span class="line">alter table tt drop age; --删除列</span><br><span class="line">alter table tt change column  tel  age int ; --修改表列名称</span><br><span class="line">alter table test rename test1; --修改表名</span><br></pre></td></tr></table></figure>
+<h1 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h1><h2 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h2><ol>
+<li><p>查看各种SQL执行频率 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show status;</span><br></pre></td></tr></table></figure>
+<p>两种方式定位执行效率比较低的SQL语句:</p>
+<p>A. 慢查询日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">--查询默认慢查询</span><br><span class="line">show variables like ”%long%”</span><br><span class="line">--设置慢查询时间</span><br><span class="line">set global long_query_time=2</span><br><span class="line">--启动满查询</span><br><span class="line">set global slow_query_log=’ON’; </span><br><span class="line">--查看满查询相关，是否开启、日志存储位置慢查询日志分析工具</span><br><span class="line">show variables like &quot;%slow%&quot;; </span><br><span class="line">--slow记录最多的10个语句</span><br><span class="line">mysqldumpslow -s r -t 10  /slowquery.log</span><br><span class="line">--按照时间排序前10中含有&quot;left join&quot;的</span><br><span class="line">mysqldumpslow -s t -t 10 -g &quot;left join&quot;  /slowquery.log</span><br></pre></td></tr></table></figure>
+<p>B. 当前mysql在进行的线程，包括线程的状态、是否锁表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show processlist</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过explain分析效率低SQL的执行计划</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW STATUS LIKE &quot;%Handler_read%&quot;; //查看索引使用情况</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>两个简单实用的优化方法： </p>
+<p>A. 定期分析表和检查表 </p>
+<ul>
+<li>分析表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">analyze table store;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>检查表</li>
+</ul>
+<p>B. 定期优化表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">optimize table store;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用的SQL优化 </p>
+<p>优化数据库对象： </p>
+<ol>
+<li>SELECT * from combo_item PROCEDURE ANALYSE() //优化表的数据类型，最适合大表优化 </li>
+<li>使用中间表提高统计查询速度 </li>
+<li>逆规范化 </li>
+<li>通过拆分提高表的访问效率</li>
+</ol>
+<p>锁问题<br>MyISAM </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show status like ‘table_locks_%’; </span><br><span class="line"></span><br><span class="line"># Table_locks_waited 的值比较高的情况下，说明存在着较严重的表级锁争用情况</span><br></pre></td></tr></table></figure>
+<p>获取Innodb 行锁争用情况 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show status like “innodb_row_lock_%%”;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/05/添加live2d看板动画/" rel="next" title="添加live2d看板动画">
+                <i class="fa fa-chevron-left"></i> 添加live2d看板动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -339,6 +515,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -359,8 +542,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -422,6 +614,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#日常运维"><span class="nav-number">1.</span> <span class="nav-text">日常运维</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些通用操作"><span class="nav-number">1.1.</span> <span class="nav-text">一些通用操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql中的常用工具"><span class="nav-number">1.2.</span> <span class="nav-text">mysql中的常用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis"><span class="nav-number">1.3.</span> <span class="nav-text">mybatis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询建表语句"><span class="nav-number">1.4.</span> <span class="nav-text">查询建表语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建索引"><span class="nav-number">2.</span> <span class="nav-text">创建索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化"><span class="nav-number">2.1.</span> <span class="nav-text">SQL优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

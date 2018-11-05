@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql常见操作]]></title>
+    <url>%2F2018%2F11%2F05%2Fmysql%E6%93%8D%E4%BD%9C%E8%AF%AD%E5%8F%A5%2F</url>
+    <content type="text"><![CDATA[日常运维一些通用操作12345678910111213-- 查看mysql版本select version();-- 查看数据文件保存目录show variables like &quot;%datadir%&quot;;-- mysql修改数据库时间set global time_zone = &apos;+8:00&apos;;set time_zone = &apos;+8:00&apos;;flush privileges;-- 查看存储引擎show table status from ytx_combo where name=&apos;combo&apos;; mysql中的常用工具12345678# 查找my.cnf的文件地址mysql --help|grep my.cnf# 查看mysql的my.conf文件所在位置mysql -p123456 --help |grep my.cnf# 登录mysqlmysql -h 127.0.0.1 -P3306 -u root -p mybatis12# mybatis批量修改&amp;allowMultiQueries=true 查询建表语句1234567show create table filmshow create table store;alter table tt add (age INT); --添加一列alter table tt modify age VARCHAR(30); --修改列数据类型alter table tt drop age; --删除列alter table tt change column tel age int ; --修改表列名称alter table test rename test1; --修改表名 创建索引SQL优化 查看各种SQL执行频率 1show status; 两种方式定位执行效率比较低的SQL语句: A. 慢查询日志： 123456789101112--查询默认慢查询show variables like ”%long%”--设置慢查询时间set global long_query_time=2--启动满查询set global slow_query_log=’ON’; --查看满查询相关，是否开启、日志存储位置慢查询日志分析工具show variables like &quot;%slow%&quot;; --slow记录最多的10个语句mysqldumpslow -s r -t 10 /slowquery.log--按照时间排序前10中含有&quot;left join&quot;的mysqldumpslow -s t -t 10 -g &quot;left join&quot; /slowquery.log B. 当前mysql在进行的线程，包括线程的状态、是否锁表 1show processlist 通过explain分析效率低SQL的执行计划 1SHOW STATUS LIKE &quot;%Handler_read%&quot;; //查看索引使用情况 两个简单实用的优化方法： A. 定期分析表和检查表 分析表 1analyze table store; 检查表 B. 定期优化表 1optimize table store; 常用的SQL优化 优化数据库对象： SELECT * from combo_item PROCEDURE ANALYSE() //优化表的数据类型，最适合大表优化 使用中间表提高统计查询速度 逆规范化 通过拆分提高表的访问效率 锁问题MyISAM 123show status like ‘table_locks_%’; # Table_locks_waited 的值比较高的情况下，说明存在着较严重的表级锁争用情况 获取Innodb 行锁争用情况 1show status like “innodb_row_lock_%%”;]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[添加live2d看板动画]]></title>
+    <url>%2F2018%2F11%2F05%2F%E6%B7%BB%E5%8A%A0live2d%E7%9C%8B%E6%9D%BF%E5%8A%A8%E7%94%BB%2F</url>
+    <content type="text"><![CDATA[首先贴出官网代码官网地址配置：https://www.npmjs.com/package/hexo-helper-live2d 按如下步骤执行1️⃣ 首先检查博客主目录下面的 package.json里是否有 &quot;hexo-helper-live2d&quot;: &quot;^3.0.3&quot;,依赖，有的话可以先卸载 使用命令：npm uninstall hexo-helper-live2d 之后再安装：npm install --save hexo-helper-live2d 注意：命令都是在你的博客主目录执行 我的博客目录结构：d:/github/blog 安装完成之后在 1package.json 会看到安装的model package.json依赖 此时再去 1node_moduels 目录下，可以看到有如下文件夹，这些都是动画主配置 node_modules目录 2️⃣下载各种动画model： 地址： https://github.com/xiazeyu/live2d-widget-models.git 3️⃣下载好之后将packages里的所有动画模板拷贝到博客的node_modules目录里 packages目录 4️⃣配置博客站点配置文件，_config.yml 1234567891011live2d: enable: true pluginModelPath: assets/ model: use: live2d-widget-model-epsilon2_1 #模板目录，在node_modules里 display: position: right width: 150 height: 300 mobile: show: false #是否在手机进行显示 5️⃣开始部署 当使用hexo clean或者 hexo g命令的时候，这时候就可以看到如下日志了 构建日志 1INFO HEXO-HELPER-LIVE2D: Loaded model from npm-module(1), live2d-widget-model-epsilon2_1@1.0.5 from &apos;D:\github\blog\node_modules\live2d-widget-model-epsilon2_1\assets&apos; 说明已经加载到了配置的动画模板，到此就完成了。]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo NexT主题 设置圆形头像并旋转]]></title>
+    <url>%2F2018%2F11%2F05%2FHexo-NexT%E4%B8%BB%E9%A2%98-%E8%AE%BE%E7%BD%AE%E5%9C%86%E5%BD%A2%E5%A4%B4%E5%83%8F%E5%B9%B6%E6%97%8B%E8%BD%AC%2F</url>
+    <content type="text"><![CDATA[找到主题配置文件： /themes/next/source/css/_common/components/sidebar/sidebar-author.styl 修改为如下代码即可： 1234567891011121314151617181920212223242526272829.site-author-image &#123; display: block; margin: 0 auto; padding: $site-author-image-padding; max-width: $site-author-image-width; height: $site-author-image-height; border: $site-author-image-border-width solid $site-author-image-border-color; border-radius: 60%; transition: 2.5s all; &#125;.site-author-image:hover &#123; transform: rotate(360deg);&#125;.site-author-name &#123; margin: $site-author-name-margin; text-align: $site-author-name-align; color: $site-author-name-color; font-weight: $site-author-name-weight;&#125;.site-description &#123; margin-top: $site-description-margin-top; text-align: $site-description-align; font-size: $site-description-font-size; color: $site-description-color;&#125;]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo 添加网易云音乐]]></title>
+    <url>%2F2018%2F11%2F05%2FHexo-%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%2F</url>
+    <content type="text"><![CDATA[添加网易云音乐我们可以直接在网易云音乐中搜索我们想要插入的音乐，然后点击生成外链播放器然后可以根据你得设置生成相应的html代码，将获得的html代码插入到你想要插入的位置即可 我放在了layout/_macro/sidebar.swig 文件下 1234&lt;div id="music163player"&gt; &lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&amp;id=38358214&amp;auto=0&amp;height=66"&gt; &lt;/iframe&gt;&lt;/div&gt; 然后就可以在侧边栏看见我的播放器了~]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[安装NexT]]></title>
     <url>%2F2018%2F11%2F04%2F%E5%AE%89%E8%A3%85NexT%2F</url>
     <content type="text"><![CDATA[Hexo 是高效的静态站点生成框架，她基于 Node.js。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 标签插件 来快速的插入特定形式的内容。在这篇文章中，假定你已经成功安装了 Hexo，并使用 Hexo 提供的命令创建了一个站点。 你可以访问 Hexo 的文档 了解如何安装 Hexo 在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。 为了描述方便，在以下说明中，将前者称为 站点配置文件， 后者称为 主题配置文件。 安装 NexTHexo 安装主题的方式非常简单，只需要将主题文件拷贝至站点目录的 themes 目录下， 然后修改下配置文件即可。具体到 NexT 来说，安装步骤如下。 下载主题如果你熟悉 Git， 建议你使用 克隆最新版本 的方式，之后的更新可以通过 git pull 来快速更新， 而不用再次下载压缩包替换。 克隆最新版本 下载稳定版本 在终端窗口下，定位到 Hexo 站点目录下。使用 Git checkout 代码： 12$ cd your-hexo-site$ git clone https://github.com/iissnan/hexo-theme-next themes/next 如果你对 Git 感兴趣，可以通过《Pro Git》这本书来学习。你可以访问我制作的一个 在线版本（第一版）。 启用主题与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 站点配置文件， 找到 theme 字段，并将其值更改为 next。 启用 NexT 主题 1theme: next 到此，NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 hexo clean 来清除 Hexo 的缓存。 验证主题首先启动 Hexo 本地站点，并开启调试模式（即加上 --debug），整个命令是 hexo s --debug。 在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更好的定位错误。 当命令行输出中提示出： 1INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop. 此时即可使用浏览器访问 http://localhost:4000，检查站点是否正确运行。 当你看到站点的外观与下图所示类似时即说明你已成功安装 NexT 主题。这是 NexT 默认的 Scheme —— Muse 现在，你已经成功安装并启用了 NexT 主题。下一步我们将要更改一些主题的设定，包括个性化以及集成第三方服务。]]></content>
